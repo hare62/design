@@ -44,3 +44,20 @@ module.exports = {
 }
 10.修改package.json中script中的dev
 "dev": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
+11.npm install babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-latest --save-dev --registry=https://registry.npm.taobao.org
+12.新建文件.babelrc
+键入内容如下：{
+  "presets": ["es2015", "latest"],
+  "plugins": []
+}
+
+13.//版本问题
+npm install babel-loader@7
+14.在webpack.dev.config.js中加
+  module: {
+    rules: [{
+      test: /\.js?$/,
+      exclude:/(node_modules)/,
+      loader: "babel-loader"
+    }]
+  },

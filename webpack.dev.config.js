@@ -9,6 +9,14 @@ module.exports = {
     filename: "./release/bundle.js"
   },
 
+  module: {
+    rules: [{
+      test: /\.js?$/,
+      exclude:/(node_modules)/,
+      loader: "babel-loader"
+    }]
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html"
@@ -17,7 +25,7 @@ module.exports = {
 
   devServer: {
     contentBase: path.join(__dirname, "./release"),
-    open: true,
+    open: true,//浏览器自动打开
     port: 8060
   }
 }
